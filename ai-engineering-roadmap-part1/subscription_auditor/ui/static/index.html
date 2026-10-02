@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SubscriptionAuditor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/static/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">SA</span>
+        <span class="brand-name">Subscription<strong>Auditor</strong></span>
+      </div>
+      <span class="brand-tag">Helping you stop paying for what you forgot</span>
+    </header>
+
+    <main class="wrap">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">AI statement audit</p>
+          <h1>Find the subscriptions <span>quietly draining</span> your account.</h1>
+          <p class="lede">
+            Upload a bank or card statement and three AI agents read every line,
+            spot recurring charges, price hikes, duplicates and trial
+            conversions, then hand you a clear savings report.
+          </p>
+        </div>
+      </section>
+
+      <!-- Upload -->
+      <section class="card" id="uploadCard">
+        <h2 class="card-title">1 &middot; Upload your statement</h2>
+        <label class="dropzone" id="dropzone" for="fileInput">
+          <input type="file" id="fileInput" accept="application/pdf,.pdf" hidden />
+          <div class="dropzone-icon">📄</div>
+          <div class="dropzone-text">
+            <strong id="dropTitle">Drag &amp; drop a PDF here</strong>
+            <span id="dropHint">or click to browse &middot; PDF only</span>
+          </div>
+        </label>
+        <button class="btn primary" id="auditBtn" disabled>Audit my statement</button>
+        <p class="error" id="uploadError" hidden></p>
+      </section>
+
+      <!-- Progress -->
+      <section class="card" id="progressCard" hidden>
+        <h2 class="card-title">2 &middot; Agents at work</h2>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p class="progress-pct"><span id="progressPct">0</span>% complete</p>
+        <ul class="stages" id="stages"></ul>
+      </section>
+
+      <!-- Report -->
+      <section class="card report-card" id="reportCard" hidden>
+        <div class="report-head">
+          <div>
+            <h2 class="card-title">3 &middot; Your savings report is ready</h2>
+            <p class="report-note">
+              Review it below, then download a copy to keep. Nothing is cancelled
+              for you, you decide what to act on.
+            </p>
+          </div>
+          <div class="report-actions">
+            <a class="btn primary" id="downloadReport" download>⬇ Download report</a>
+            <a class="btn ghost" id="downloadCsv" download hidden>⬇ Transactions CSV</a>
+          </div>
+        </div>
+        <div class="report-body markdown" id="reportBody"></div>
+        <div class="report-cta">
+          <span>Want a copy for your records?</span>
+          <a class="btn primary sm" id="downloadReport2" download>⬇ Download the report</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="newsletter">
+        <img class="author-logo" src="/static/images/zoumana.png" alt="Zoumana Keita" onerror="this.style.display='none'" />
+        <div class="newsletter-copy">
+          <strong>Master AI Systems from design to production</strong>
+          <span>
+            Subscribe to my newsletter,
+            <a href="https://zoumanakeita.substack.com/" target="_blank" rel="noopener"
+              >Zoumana&rsquo;s Substack: AI Systems in Practice</a
+            >.
+          </span>
+        </div>
+        <a
+          class="btn primary sm"
+          href="https://zoumanakeita.substack.com/"
+          target="_blank"
+          rel="noopener"
+          >Subscribe</a
+        >
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

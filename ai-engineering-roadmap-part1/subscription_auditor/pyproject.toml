@@ -1,0 +1,32 @@
+[project]
+name = "subscription_auditor"
+version = "0.1.0"
+description = "subscription_auditor using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.14"
+dependencies = [
+    "boto3>=1.43.104",
+    "crewai[tools]>=1.15.22,<2.0.0",
+    "pdfplumber>=0.11.0",
+    "pymupdf>=1.24.0",
+    "python-dotenv>=1.0.0",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",
+    "python-multipart>=0.0.9",
+]
+
+[project.scripts]
+subscription_auditor = "subscription_auditor.main:run"
+run_crew = "subscription_auditor.main:run"
+train = "subscription_auditor.main:train"
+replay = "subscription_auditor.main:replay"
+test = "subscription_auditor.main:test"
+run_with_trigger = "subscription_auditor.main:run_with_trigger"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
+project_id = "15a60bc6-6e3c-4f27-b6f3-5d17db797bab"
