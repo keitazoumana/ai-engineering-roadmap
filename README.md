@@ -46,9 +46,9 @@ The agents read and recommend. They never cancel anything: the user makes the fi
 
 | Step | Topic | What you build | Code | Article |
 |:---:|---|---|---|---|
-| 1 | Frame the problem | Pain point, inputs, outputs, success criteria, test data | [Part 1](part-1-agent-team-and-ui/) | [Read](https://zoumanakeita.substack.com) |
-| 2 | Build the agent team | Three agents, three tasks, one model on Amazon Bedrock | [Part 1](part-1-agent-team-and-ui/) | [Read](https://zoumanakeita.substack.com) |
-| 3 | Add a simple UI | Local web page with uploads, live progress and downloads | [Part 1](part-1-agent-team-and-ui/) | [Read](https://zoumanakeita.substack.com) |
+| 1 | Frame the problem | Pain point, inputs, outputs, success criteria, test data | [Part 1](part-1-agent-team-and-ui/) | [Read](https://zoumanakeita.substack.com/p/build-an-ai-agent-youll-actually) |
+| 2 | Build the agent team | Three agents, three tasks, one model on Amazon Bedrock | [Part 1](part-1-agent-team-and-ui/) | [Read](https://zoumanakeita.substack.com/p/build-an-ai-agent-youll-actually) |
+| 3 | Add a simple UI | Local web page with uploads, live progress and downloads | [Part 1](part-1-agent-team-and-ui/) | [Read](https://zoumanakeita.substack.com/p/build-an-ai-agent-youll-actually) |
 | 4 | Package the agent | Dockerfile, container image, registry | Coming soon | |
 | 5 | Deploy to a managed runtime | Serverless runtime with an isolated session per user | Coming soon | |
 | 6 | Invoke it anywhere | Serverless functions, REST API, web front end | Coming soon | |
