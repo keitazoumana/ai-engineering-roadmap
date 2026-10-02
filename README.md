@@ -10,7 +10,7 @@ One real project, taken from a blank folder to production in 11 steps. Any agent
 ![CrewAI](https://img.shields.io/badge/CrewAI-1.15.22-0A62F0)
 ![Amazon Bedrock](https://img.shields.io/badge/Amazon%20Bedrock-Claude%20Sonnet%204.5-232F3E?logo=amazonwebservices&logoColor=white)
 
-![The Agentic AI Engineer Roadmap: 11 steps from framing the problem to shipping end to end](assets/roadmap.png)
+![The Agentic AI Engineer Roadmap: 11 steps from framing the problem to shipping end to end](ai-engineering-roadmap-part1/subscription_auditor/assets/roadmap.png)
 
 ---
 
@@ -38,7 +38,7 @@ Subscriptions are designed to be forgotten: free trials that turn into paid plan
 
 The agents read and recommend. They never cancel anything: the user makes the final decision.
 
-![SubscriptionAuditor in action](assets/ui-demo.gif)
+![SubscriptionAuditor in action](ai-engineering-roadmap-part1/subscription_auditor/assets/ui-demo.gif)
 
 ---
 
