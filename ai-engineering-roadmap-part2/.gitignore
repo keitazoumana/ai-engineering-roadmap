@@ -1,0 +1,25 @@
+# Secrets — never commit
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated app output
+**/ui/uploads/
+**/ui/outputs/
+**/report.md
+**/transactions.csv
+
+# Rendered OCR pages
+**/*_page*.png

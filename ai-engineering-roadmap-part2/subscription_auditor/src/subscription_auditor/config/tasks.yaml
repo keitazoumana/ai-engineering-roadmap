@@ -1,0 +1,46 @@
+extract_task:
+  description: >
+    Read the bank statement PDF at {statement_path} with the Statement Reader tool.
+    Return every transaction with its date, a cleaned merchant name and its amount.
+    Keep all transactions, including $0.00 ones, because they can reveal free trials.
+    If the tool reports scanned pages and lists image paths, read those images with
+    the OCR tool and include their transactions too, so no line is missed.
+    Finally, check that the transactions you list add up to the statement's printed
+    total; if they do not, say so and note which pages look incomplete.
+  expected_output: >
+    Valid CSV with a header row `date,merchant,amount` followed by one transaction
+    per line. Quote any merchant name that contains a comma. After the CSV rows,
+    add a single final line starting with `# totals check:` that states whether the
+    amounts add up to the statement total and names any pages that look incomplete.
+    Output only the CSV and that comment line, with no code fences or extra prose.
+  agent: statement_extractor
+
+detect_task:
+  description: >
+    Using the extracted transactions, find:
+    1. Recurring charges: the same merchant charged at a regular interval.
+    2. Price increases: a recurring charge whose amount went up.
+    3. Duplicate charges: the same merchant and amount charged twice on the same day.
+    4. Trial conversions: a $0.00 charge followed by paid charges from the same merchant.
+    Give the dates and amounts that prove each finding.
+  expected_output: >
+    A list of findings. Each one has a type, a merchant, the evidence (dates and
+    amounts) and the estimated yearly cost.
+  agent: subscription_detective
+  context:
+    - extract_task
+
+review_task:
+  description: >
+    Check each finding against the extracted transactions. Remove any finding the
+    evidence does not support. For each remaining finding, suggest keep, review or
+    ask for a refund, with a one-sentence reason. Add the total yearly cost of all
+    recurring charges. Do not tell the user to cancel anything outright: they decide.
+  expected_output: >
+    A savings report in markdown with a summary line, a table of findings
+    (merchant, type, evidence, yearly cost, suggestion) and the total yearly cost.
+    Formatted as markdown without '```'.
+  agent: savings_reviewer
+  context:
+    - extract_task
+    - detect_task
